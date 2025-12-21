@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+        <title>Rumah Makan Halal - Ciputat Timur</title>
+
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/templatemo-klassy-cafe.css">
+        <link rel="stylesheet" href="assets/css/owl-carousel.css">
+        <link rel="stylesheet" href="assets/css/lightbox.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+        <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
+        <link rel="stylesheet" href="assets/css/leaflet.groupedlayercontrol.css">
+        <link rel="stylesheet" href="assets/css/Control.MiniMap.css">
+        <link rel="stylesheet" href="assets/css/L.Control.ZoomBar.css">
+        <link rel="stylesheet" href="assets/css/Leaflet.Coordinates-0.1.5.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+        <script src="assets/js/leaflet.groupedlayercontrol.js"></script>
+        <script src="assets/js/Control.MiniMap.js"></script>
+        <script src="assets/js/Leaflet.Coordinates-0.1.5.min.js"></script>
+        <script src="assets/js/L.Control.ZoomBar.js"></script>
+
+        <style>
+            /*
+            ==============================================
+            Custom CSS for "Rumah Makan Halal"
+            - New Color Scheme & Fonts
+            - Improved Layout & UI Elements
+            ==============================================
+            */
+
+            :root {
+                --primary-color: #4CAF50; /* A fresh, food-related green */
+                --secondary-color: #FF9800; /* A warm, appetizing orange */
+                --text-color: #555;
+                --heading-color: #333;
+                --background-color: #FDFDFD;
+                --white-color: #fff;
+                --light-gray-color: #f4f4f4;
+                --border-radius: 12px;
+                --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            }
+
+            /* --- General & Typography --- */
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-color: var(--background-color);
+                color: var(--text-color);
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Montserrat', sans-serif;
+                color: var(--heading-color);
+                font-weight: 600;
+            }
+
+            a {
+                color: var(--primary-color);
+                transition: all 0.3s ease;
+            }
+            a:hover {
+                color: var(--secondary-color);
+                text-decoration: none;
+            }
+
+            .section-heading h6 {
+                color: var(--secondary-color);
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .section-heading h2 {
+                font-size: 36px;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+
+            /* --- Header --- */
+            .header-area.header-sticky {
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                box-shadow: var(--shadow);
+            }
+            .header-area .logo img {
+                width: 150px !important; /* Fixed width for logo */
+                height: auto;
+                margin-top: 5px;
+            }
+            .header-area .main-nav .nav li a {
+                color: var(--text-color) !important;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+            }
+            .header-area .main-nav .nav li a.active,
+            .header-area .main-nav .nav li a:hover {
+                color: var(--primary-color) !important;
+            }
+
+            /* --- Main Banner --- */
+            #top .left-content h4 {
+                color: var(--primary-color);
+                font-size: 42px;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+            #top .left-content h6 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 20px;
+                color: var(--text-color);
+                margin-bottom: 30px;
+            }
+            .main-white-button a {
+                background-color: var(--primary-color);
+                color: var(--white-color) !important;
+                border-radius: 50px;
+                padding: 12px 30px;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+            }
+            .main-white-button a:hover {
+                background-color: var(--secondary-color);
+                box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5);
+            }
+            .main-banner .img-fill img {
+                border-radius: var(--border-radius);
+            }
+
+            /* --- About Section --- */
+            #about .left-text-content p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+            #about .row img {
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow);
+            }
+
+            /* --- Menu Section --- */
+            #menu {
+                background-color: var(--light-gray-color);
+            }
+            .menu-item-carousel .item .card {
+                height: 400px;
+                background-color: #333;
+                border-radius: var(--border-radius);
+                overflow: hidden;
+                position: relative;
+                box-shadow: var(--shadow);
+                transition: all 0.4s ease;
+                background-size: cover;
+                background-position: center;
+            }
+            .menu-item-carousel .item .card:hover {
+                transform: translateY(-10px);
+            }
+            .menu-item-carousel .item .card .info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 30px;
+                background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            }
+            .menu-item-carousel .item .card .info .title {
+                color: var(--white-color);
+                font-size: 24px;
+                font-weight: 700;
+            }
+            .menu-item-carousel .item .card .info .description {
+                color: rgba(255,255,255,0.85);
+                font-size: 15px;
+            }
+
+            /* --- Lokasi Section --- */
+            #chefs {
+                padding-bottom: 40px;
+            }
+            #map {
+                box-shadow: var(--shadow) !important;
+                border-radius: var(--border-radius) !important;
+            }
+
+            /* --- Footer --- */
+            footer {
+                background-color: #262626;
+                color: #aaa;
+            }
+            footer .logo img {
+                width: 120px !important; /* Fixed width */
+                height: auto;
+            }
+            footer p {
+                color: #aaa;
+            }
+            footer .social-icons li a {
+                display: inline-block;
+                width: 44px;
+                height: 44px;
+                line-height: 44px;
+                text-align: center;
+                border-radius: 50%;
+                background-color: #3a3a3a;
+                color: var(--white-color);
+                transition: all 0.3s ease;
+            }
+            footer .social-icons li a:hover {
+                background-color: var(--primary-color);
+                color: var(--white-color);
+            }
+        </style>
+
+    </head>
+        
+    <body>
+        
+        <!-- ***** Preloader Start ***** -->
+        <div id="preloader">
+                <div class="jumper">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+        </div>  
+        <!-- ***** Preloader End ***** -->
+        
+        <!-- ***** Header Area Start ***** -->
+        <header class="header-area header-sticky">
+                <div class="container">
+                        <div class="row">
+                                <div class="col-12">
+                                        <nav class="main-nav">
+                                                <!-- ***** Logo Start ***** -->
+                                                <a href="#" class="logo">
+                                                        <img src="assets/images/logo-eat.png" alt="Rumah Makan Halal">
+                                                </a>
+                                                <!-- ***** Logo End ***** -->
+                                                <!-- ***** Menu Start ***** -->
+                                                <ul class="nav">
+                                                        <li class="scroll-to-section"><a href="#" class="active">Home</a></li>
+                                                        <li class="scroll-to-section"><a href="#about">About</a></li>
+                                                        <li class="scroll-to-section"><a href="#menu">Menu</a></li>
+                                                        <li class="scroll-to-section"><a href="#chefs">Lokasi</a></li>
+                                                </ul>
+                                                <a class='menu-trigger'>
+                                                        <span>Menu</span>
+                                                </a>
+                                                <!-- ***** Menu End ***** -->
+                                        </nav>
+                                </div>
+                        </div>
+                </div>
+        </header>
+        <!-- ***** Header Area End ***** -->
+
+        <!-- ***** Main Banner Area Start ***** -->
+        <div id="top">
+                <div class="container-fluid">
+                        <div class="row">
+                                <div class="col-lg-4">
+                                        <div class="left-content">
+                                                <div class="inner-content">
+                                                        <h4>RUMAH MAKAN HALAL</h4>
+                                                        <h6>CIPUTAT TIMUR</h6>
+                                                        <div class="main-white-button scroll-to-section">
+                                                                <a href="#chefs">Lihat Lokasi</a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="col-lg-8">
+                                        <div class="main-banner header-text">
+                                                <div class="Modern-Slider">
+                                                        <div class="item">
+                                                                <div class="img-fill">
+                                                                        <img src="assets/images/warteg1.jpeg" alt="Rumah Makan">
+                                                                </div>
+                                                        </div>
+                                                        <div class="item">
+                                                                <div class="img-fill">
+                                                                        <img src="assets/images/warteg2.webp" alt="Rumah Makan">
+                                                                </div>
+                                                        </div>
+                                                        <div class="item">
+                                                                <div class="img-fill">
+                                                                        <img src="assets/images/warteg3.jpg" alt="Rumah Makan">
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <section class="section" id="about">
+                <div class="container">
+                        <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                        <div class="left-text-content">
+                                                <div class="section-heading">
+                                                        <h6>Tentang Kami</h6>
+                                                        <h2>Cita Rasa Halal yang Tak Terlupakan</h2>
+                                                </div>
+                                                <p>Rumah makan halal adalah tempat makan favorit banyak orang karena menyajikan makanan berkualitas dengan harga terjangkau. Website ini dibuat untuk memudahkan masyarakat menemukan lokasi rumah makan halal di Ciputat Timur dengan cepat dan praktis.
+                                                </p>
+                                                <div class="row">
+                                                        <div class="col-4">
+                                                                <img src="assets/images/about1.jpg" alt="Rumah Makan 1">
+                                                        </div>
+                                                        <div class="col-4">
+                                                                <img src="assets/images/about2.jpg" alt="Rumah Makan 2">
+                                                        </div>
+                                                        <div class="col-4">
+                                                                <img src="assets/images/about3.JPG" alt="Rumah Makan 3">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <section class="section" id="menu">
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col-lg-4">
+                                                <div class="section-heading">
+                                                        <h6>Menu Kami</h6>
+                                                        <h2>Berbagai Menu Pilihan</h2>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="menu-item-carousel">
+                                <div class="col-lg-12">
+                                        <div class="owl-menu-item owl-carousel">
+                                                <div class="item">
+                                                        <div class='card card1'>
+                                                                <div class='info'>
+                                                                        <h1 class='title'>Ikan Tongkol</h1>
+                                                                        <p class='description'>Ikan tongkol halal dengan bumbu pedas atau santan yang gurih dan lezat.</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class='card card2'>
+                                                                <div class='info'>
+                                                                        <h1 class='title'>Kentang Goreng</h1>
+                                                                        <p class='description'>Kentang goreng renyah dan gurih, camilan sempurna untuk teman makan.</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class='card card3'>
+                                                                <div class='info'>
+                                                                        <h1 class='title'>Tempe Orek</h1>
+                                                                        <p class='description'>Tempe goreng dengan bumbu kecap manis yang gurih dan sedikit manis.</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class='card card4'>
+                                                                <div class='info'>
+                                                                        <h1 class='title'>Telur Dadar</h1>
+                                                                        <p class='description'>Telur dadar dengan bumbu pilihan yang matang sempurna.</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class='card card5'>
+                                                                <div class='info'>
+                                                                        <h1 class='title'>Tumis Kangkung</h1>
+                                                                        <p class='description'>Kangkung segar ditumis dengan bumbu sederhana dan lezat.</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <!-- ***** Lokasi Area Starts ***** -->
+                <section class="section" id="chefs">
+                        <div class="container">
+                                <div class="row">
+                                        <div class="text-center col-lg-4 offset-lg-4">
+                                                <div class="section-heading">
+                                                        <h2>Lokasi Rumah Makan Halal di Ciputat Timur</h2>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="content" style="display: flex; justify-content: center; align-items: center;">
+                                        <div id="map" style="height: 750px; width: 100%; max-width: 1200px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); overflow: hidden; z-index: 0;"></div>
+                                </div>
+
+                                <script>
+                                        var provin = new L.LayerGroup();
+                                        var rumah_makan = new L.LayerGroup();
+                                        var ciputat_timur = new L.LayerGroup();
+
+                                        var map = L.map("map", {
+                                                center: [-6.3035, 106.7644],
+                                                zoom: 15,
+                                                zoomControl: false,
+                                                layers: [],
+                                        });
+
+                                        var GoogleSatelliteHybrid = L.tileLayer(
+                                                "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}", {
+                                                        maxZoom: 22,
+                                                        attribution: "Rumah Makan Halal Ciputat Timur",
+                                                }
+                                        ).addTo(map);
+
+                                        var Esri_NatGeoWorldMap = L.tileLayer(
+                                                "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}", {
+                                                        attribution: "Tiles &copy; Esri",
+                                                        maxZoom: 16,
+                                                }
+                                        );
+
+                                        var GoogleMaps = new L.TileLayer(
+                                                "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}", {
+                                                        opacity: 1.0,
+                                                        attribution: "Google Maps",
+                                                }
+                                        );
+
+                                        var GoogleRoads = new L.TileLayer(
+                                                "https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}", {
+                                                        opacity: 1.0,
+                                                        attribution: "Google Roads",
+                                                }
+                                        );
+
+                                        var baseLayers = {
+                                                "Google Satellite": GoogleSatelliteHybrid,
+                                                "Esri NatGeo": Esri_NatGeoWorldMap,
+                                                "Google Maps": GoogleMaps,
+                                                "Google Roads": GoogleRoads,
+                                        };
+
+                                        var groupedOverLayers = {
+                                                "Peta": {
+                                                        Provinsi: provin,
+                                                        "Ciputat Timur": ciputat_timur,
+                                                },
+                                        };
+
+                                        L.control.groupedLayers(baseLayers, groupedOverLayers).addTo(map);
+
+                                        var osmUrl = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+                                        var osmAttrib = "Map data &copy; OpenStreetMap";
+
+                                        var osm2 = new L.TileLayer(osmUrl, {
+                                                minZoom: 0,
+                                                maxZoom: 13,
+                                                attribution: osmAttrib,
+                                        });
+
+                                        var rect1 = { color: "#ff1100", weight: 3 };
+                                        var rect2 = { color: "#0000AA", weight: 1, opacity: 0, fillOpacity: 0 };
+
+                                        var miniMap = new L.Control.MiniMap(osm2, {
+                                                toggleDisplay: true,
+                                                position: "bottomright",
+                                                aimingRectOptions: rect1,
+                                                shadowRectOptions: rect2,
+                                        }).addTo(map);
+
+                                        L.Control.geocoder({ position: "topleft", collapsed: true }).addTo(map);
+
+                                        var locateControl = L.control.locate({
+                                                position: "topleft",
+                                                drawCircle: true,
+                                                follow: true,
+                                                setView: true,
+                                                keepCurrentZoomLevel: true,
+                                                markerStyle: { weight: 1, opacity: 0.8, fillOpacity: 0.8 },
+                                                circleStyle: { weight: 1, clickable: false },
+                                                icon: "fa fa-location-arrow",
+                                                metric: false,
+                                                strings: {
+                                                        title: "Lokasi Saya",
+                                                        popup: "Anda berada dalam jarak {distance} {unit} dari titik ini",
+                                                },
+                                                locateOptions: { maxZoom: 18, watch: true, enableHighAccuracy: true, maximumAge: 10000, timeout: 10000 },
+                                        }).addTo(map);
+
+                                        var zoom_bar = new L.Control.ZoomBar({ position: "topleft" }).addTo(map);
+
+                                        L.control.coordinates({
+                                                position: "bottomleft",
+                                                decimals: 2,
+                                                decimalSeperator: ",",
+                                                labelTemplateLat: "Latitude: {y}",
+                                                labelTemplateLng: "Longitude: {x}",
+                                        }).addTo(map);
+
+                                        L.control.scale({ metric: true, position: "bottomleft" }).addTo(map);
+
+                                        var cardinalDirectionControl = L.control({ position: "bottomleft" });
+                                        cardinalDirectionControl.onAdd = function(map) {
+                                                var div = L.DomUtil.create("div", "cardinal-direction-container");
+                                                div.innerHTML = '<img src="public/cardinal-direction.png" alt="Arah Kardinal" style="width: 150px; height: auto; margin: 10px;">';
+                                                return div;
+                                        };
+                                        cardinalDirectionControl.addTo(map);
+
+                                        $.getJSON("public/prov_polygon.geojson", function(data) {
+                                                L.geoJson(data, {
+                                                        style: function(feature) {
+                                                                return {
+                                                                        color: "#999",
+                                                                        weight: 1,
+                                                                        fillColor: "#e74c3c",
+                                                                        fillOpacity: 0.6,
+                                                                };
+                                                        },
+                                                        onEachFeature: function(feature, layer) {
+                                                                layer.bindPopup(feature.properties.PROV);
+                                                        },
+                                                }).addTo(provin);
+                                        });
+
+                                        $.getJSON("public/ciputat_timur_polygon.geojson", function(data) {
+                                                L.geoJson(data, {
+                                                        style: function(feature) {
+                                                                return {
+                                                                        color: "#999",
+                                                                        weight: 1,
+                                                                        fillColor: "#3498db",
+                                                                        fillOpacity: 0.6,
+                                                                };
+                                                        },
+                                                        onEachFeature: function(feature, layer) {
+                                                                layer.bindPopup(feature.properties.NAME_4);
+                                                        },
+                                                }).addTo(ciputat_timur);
+                                        });
+
+                                        $.getJSON("public/warteg_ciputat.geojson", function(data) {
+                                                var markerIcon = L.icon({
+                                                        iconUrl: "public/marker-1.png",
+                                                        iconSize: [30, 40],
+                                                });
+
+                                                L.geoJson(data, {
+                                                        pointToLayer: function(feature, latlng) {
+                                                                var marker = L.marker(latlng, { icon: markerIcon });
+                                                                var popupContent = `
+                                                                        <div style="text-align: center; padding: 10px;">
+                                                                                <h3 style="margin: 10px 0;">${feature.properties.Nama_Warteg || "Nama tidak tersedia"}</h3>
+                                                                                <img src="${feature.properties.image || ""}" alt="Rumah Makan" style="width:150px; height:auto; border-radius: 5px;">
+                                                                                <p style="margin: 10px 0; font-size: 14px;">${feature.properties.Alamat || "Alamat tidak tersedia"}</p>
+                                                                        </div>`;
+                                                                marker.bindPopup(popupContent);
+                                                                return marker;
+                                                        },
+                                                }).addTo(map);
+                                        });
+                                </script>
+
+                        </div>
+                </section>
+
+        <!-- ***** Footer Start ***** -->
+        <footer>
+                <div class="container">
+                        <div class="row">
+                                <div class="col-lg-4 col-xs-12">
+                                        <div class="right-text-content">
+                                                <ul class="social-icons">
+                                                        <li><a href="https://github.com/mizanade" target="_blank"><i class="fa fa-github"></i></a></li>
+                                                        <li><a href="https://www.linkedin.com/in/mizanade" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a href="https://www.instagram.com/mizan_a.a" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                                </ul>
+                                        </div>
+                                </div>
+                                <div class="col-lg-4">
+                                        <div class="logo">
+                                                <a href="#"><img src="assets/images/logo-eat.png" alt="Logo"></a>
+                                        </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12">
+                                        <div class="left-text-content">
+                                                <p>© Copyright KELOMPOK 10 </p>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery-2.1.0.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/owl-carousel.js"></script>
+        <script src="assets/js/accordions.js"></script>
+        <script src="assets/js/datepicker.js"></script>
+        <script src="assets/js/scrollreveal.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="assets/js/imgfix.min.js"></script> 
+        <script src="assets/js/slick.js"></script> 
+        <script src="assets/js/lightbox.js"></script> 
+        <script src="assets/js/isotope.js"></script> 
+        <script src="assets/js/custom.js"></script>
+    </body>
+</html>
